@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  25 SEP 2023 23:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  26 SEP 2023 00:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1202,86 +1202,87 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 297.
  [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-
-LaTeX Warning: Reference `elementary' on page 3 undefined on input line 337.
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
 
 
-LaTeX Warning: Reference `Theorem 5.3.3 ratcliffe' on page 3 undefined on input
- line 337.
+LaTeX Warning: Reference `elementary' on page 4 undefined on input line 358.
 
 
-LaTeX Warning: Reference `spacing difference' on page 3 undefined on input line
- 341.
+LaTeX Warning: Reference `Theorem 5.3.3 ratcliffe' on page 4 undefined on input
+ line 358.
 
 
-LaTeX Warning: Reference `main thm 2' on page 3 undefined on input line 341.
+LaTeX Warning: Reference `spacing difference' on page 4 undefined on input line
+ 362.
 
 
-LaTeX Warning: Reference `main thm 2 ex' on page 3 undefined on input line 341.
+LaTeX Warning: Reference `main thm 2' on page 4 undefined on input line 362.
+
+
+LaTeX Warning: Reference `main thm 2 ex' on page 4 undefined on input line 362.
 
 
 
-LaTeX Warning: Reference `main thm 11' on page 3 undefined on input line 341.
+LaTeX Warning: Reference `main thm 11' on page 4 undefined on input line 362.
 
 
-LaTeX Warning: Reference `main thm 10' on page 3 undefined on input line 341.
+LaTeX Warning: Reference `main thm 10' on page 4 undefined on input line 362.
 
 
-LaTeX Warning: Reference `prop 1' on page 3 undefined on input line 341.
+LaTeX Warning: Reference `prop 1' on page 4 undefined on input line 362.
 
 
-Overfull \hbox (13.9859pt too wide) in paragraph at lines 364--365
-[] 
+Overfull \hbox (28.9859pt too wide) in paragraph at lines 385--386
+[][] 
  []
 
-[3]
+[4]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 371.
+(Font)              <14.4> on input line 392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 371.
+(hyperref)                removing `math shift' on input line 392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 371.
+(hyperref)                removing `\begingroup' on input line 392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 371.
+(hyperref)                removing `\endgroup' on input line 392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@over' on input line 371.
+(hyperref)                removing `\@@over' on input line 392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 371.
+(hyperref)                removing `\@ifnextchar' on input line 392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 371.
+(hyperref)                removing `subscript' on input line 392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 371.
+(hyperref)                removing `math shift' on input line 392.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 371.
+(hyperref)                removing `\@ifnextchar' on input line 392.
 
-[4] [5] [6] [7] [8] (./the_rescaling_factor.bbl) [9]
+[5] [6] [7] [8] [9] (./the_rescaling_factor.bbl) [10]
 (./the_rescaling_factor.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `the_rescaling_factor.out' has not changed.
-(rerunfilecheck)             Checksum: 86EC658AE1D1CFDFF2D693F3DFB7C23D;892.
+(rerunfilecheck)             Checksum: 2A5F95CB44D0943CC17C871A082C3329;930.
  ) 
 Here is how much of TeX's memory you used:
- 32707 strings out of 478542
- 661960 string characters out of 5850401
+ 32708 strings out of 478542
+ 661967 string characters out of 5850401
  1108276 words of memory out of 5000000
  50013 multiletter control sequences out of 15000+600000
  470011 words of font info for 82 fonts, out of 8000000 for 9000
@@ -1306,10 +1307,10 @@ xmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/f
 onts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm7.pfb>
-Output written on the_rescaling_factor.pdf (9 pages, 266895 bytes).
+Output written on the_rescaling_factor.pdf (10 pages, 270112 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 156 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
  205 words of extra memory for PDF output out of 10000 (max. 10000000)
 

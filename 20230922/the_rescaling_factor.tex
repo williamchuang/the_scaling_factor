@@ -319,13 +319,34 @@ Apply Softmax to column vectors in the matrix $\frac{QK^T}{\sqrt{d_k}}$, meaning
 
 Hence, in self-attention, each attention, i.e. weight, between each element in the sequential input to the other element in the same sequential input was weighted by the Boltzmann distribution $\text{softmax}\left(\frac{\left( QK^T \right)_i}{\sqrt{d_k}} \right)_{i=1}^N$.
 
-Furthermore, because of the random initiation of each weight matrices, if this self-attention, i.e. weights assigning process were run in parallel, then the model can learn from more than one different perspectives. In \cite{vaswani2017attention}, this notion is defined as multi-head attention. Each self-attention function  $\text{Attention}\left(Q,K,V\right)_i$ is called $\text{head}_i$, where $i$ is from 1 to $H$. The output of all $H$ heads are concatenated to a matrix denoted by $\text{Concat}\left(\text{head}_1,...,\text{head}_H \right)$, then defined $\text{Multihead(Q,K,V)}:= \text{Concat}\left(\text{head}_1,...,\text{head}_H \right)\circ W^O$, where $W^O\in \mathbb{R}^{H\cdot d_v}\times \mathbb{R}^{d_{\text{out}}}$.
+Furthermore, because of the random initiation of each weight matrices, if this self-attention, i.e. weights assigning process were run in parallel, then the model can learn from more than one different perspectives. In \cite{vaswani2017attention}, this notion is defined as multi-head attention. Each self-attention function  $\text{Attention}\left(Q,K,V\right)_i$ is called $\text{head}_i$, where $i$ is from 1 to $H$. The output of all $H$ heads are concatenated to a tensor denoted by $\text{Concat}\left(\text{head}_1,...,\text{head}_H \right)$, then defined $\text{Multihead(Q,K,V)}:= \text{Concat}\left(\text{head}_1,...,\text{head}_H \right)\circ W^O$, where $W^O\in \mathbb{R}^{H\cdot d_v}\times \mathbb{R}^{d_{\text{out}}}$.
 
 
-Let $\epsilon>0$ be given. Because of the mathematical form of the Boltzmann distribution, if the input is $z_i+\epsilon$, then $\text{Softmax}(\beta z_i+\epsilon)=\text{Softmax}(\beta z_i).$ However, a naive but natural question to ask is what if the Boltzmann distribution, or the self-attention function attend at $\beta^\epsilon$ or $\beta\cdot\epsilon$? It is necessary to ask this question, since we want to be able to justify why and when it makes sense to use the scaling factor $\beta=\frac{1}{\sqrt{d_k}}$ in the self-attention function. Is it sufficient to ask this question? That is the question this paper is going to answer.
+Let $\epsilon>0$ be given. Because of the mathematical form of the Boltzmann distribution, if the input is $z_i+\epsilon$, then $\text{Softmax}(\beta z_i+\epsilon)=\text{Softmax}(\beta z_i).$ However, a naive but natural question to ask is what if the Boltzmann distribution, or the self-attention function attend at $\beta^\epsilon$ or $\beta\cdot\epsilon$? It is necessary to ask this question, since we want to be able to justify why and when it makes sense to use the scaling factor $\beta=\frac{1}{\sqrt{d_k}}$ in the self-attention function. Is it sufficient to ask this question? That is the question this paper is going to answer. The next section provides a solution to this question.
 
 
 \section{Algorithm}
+
+To be able to make sense to use the scaling factor $\beta=\frac{1}{\sqrt{d_k}}$ in self-attention function, the four assumptions are necessary. 
+
+Within the four assumptions, the first assumption is usually fixed when self-attention is considered to be applied. 
+
+
+Since the way query and key matrices are defined, i.e. $Q=XW_q$ and $K=XW_k$, assumption (iii) and (iv) are based on assumption (ii).
+
+Suppose the assumptions (ii) is relaxed, the variance of the scalar product $q_ik_i$ is approximated to $\left( d_x \sigma_X^2 \sigma_{W_q}^2\right)\cdot\left(d_x \sigma_X^2 \sigma_{W_k}^2\right)\cdot d_k$. Since the training set is given, i.e. it is fixed, and so are $d_x$ and $d_k$, $\sigma_{W_q}$ and $\sigma_{W_k}$ are the actual moving factors. 
+
+What can cause $\sigma_{W_q}$ and $\sigma_{W_k}$ to be changed? In the training phase, the gradient descent algorithm or the backpropagation is used and the algorithm is going to shift the initial probability distribution of each entry in the random matrices $W_q$ and $W_k$ to the final probability distribution at a local minimum in the moduli space (or on the loss surface).
+
+Hence, the scaling factor $\beta=\frac{1}{\sqrt{d_k}}$ is only valid at the initial point given the four assumptions at the initial point in the moduli space, and it can hold true if the thermodynamic system described by the Boltzmann distribution is in statics, i.e. its temperature is fixed. However, since the initial point is random and unlikely to be the final point in the moduli space throughout the training mode, the assumption (ii) is not valid right after the training of the model that used self-attention function is initiated. Without assumption (ii), assumption (iii) and (iv) are invalid throughout the training and predicting modes.
+
+
+To solve this problem, the solution could be written as an algorithm that it measures $\sigma_{W_q}$ and $\sigma_{W_k}$ and updates the scaling factor $\beta$ in after each iteration or batch during the training and the best scaling factor $\beta$ that is going to be used in the predicting mode could be determined by the best model chosen from the ensemble of all trained models.
+
+This also answers the question asked in the previous section that it shows the sufficiency to ask the question.
+
+
+
 
 
 \begin{tikzpicture}[node distance=0.2cm]
@@ -363,7 +384,7 @@ Let $\epsilon>0$ be given. Because of the mathematical form of the Boltzmann dis
 %\draw [arrow] (dec4.west) -- ++ (5em,0) node[above] {no}-- ++(5em,0) |- (dec6.west);
 \end{tikzpicture}
 
-\section{Experiments}
+\section{Empirical examples}
 \section{Discussion}
 \section{Conclusion}
 %\section{Limitation}
