@@ -299,15 +299,32 @@ In the context of deep learning neural networks, attention algorithms are design
 \begin{definition}[Self-attention]
 The self-attention is the following function
 $$
-\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)_{N\times N} \circ V_{N \times d_v}.
+\text{Attention}\left(Q,K,V\right):= \left( \text{softmax}\left(\frac{\left( QK^T \right)_i}{\sqrt{d_k}} \right)_{i=1}^N \right)_{N \times N} \circ V_{N \times d_v}.
 $$
 
 \end{definition}
-\noindent\textbf{Remark:} The Softmax function is defined using the Boltzmann distribution function: Given a finite sequence $\left\lbrace \beta_i\right\rbrace, j\in\left\lbrace 1,...,n\right\rbrace$, then 
+\noindent\textbf{Remark:} The Softmax function is defined using the Boltzmann distribution function: Given a finite sequence $\left\lbrace z_i\right\rbrace, j\in\left\lbrace 1,...,n\right\rbrace$, then 
 $$
-\text{Softmax}(\beta_i) := \frac{\exp\left(\beta_i \right) }{\sum\limits_j \exp\left(\beta_j \right)}.
+\text{Softmax}(z_i) := \frac{\exp\left(z_i \right) }{\sum\limits_j \exp\left(z_j \right)}.
 $$
-Then applying Softmax to the matrix $\frac{QK^T}{\sqrt{d_k}}$ means each entry of the matrix $\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)_{N\times N}$ is obtained by taking the scalar product on the $i$-th row of $Q$ to multiply the $j-th$ column of $K^T$, then divide the scalar product by $\sqrt{d_k}$, and then apply Softmax function on each column of the matrix $\left(\frac{QK^T}{\sqrt{d_k}}\right)_{N\times N}$. Finally, take matrix multiplication between $\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)_{N\times N}$ and $V_{N \times d_v}$.
+
+Since the sum of the above function adds up to one, i.e. $\sum\limits_{i=1}^n \text{Softmax}(z_i) =1$, it is a probability distribution. In physics, this distribution is called Boltzmann distribution. Furthermore, this distribution can be scaled by using a parameter $\beta$, and $\beta$ is the inverse of the temperature of the physical system described by the distribution:
+$$
+\text{Softmax}(\beta z_i) := \frac{\exp\left(\beta z_i \right) }{\sum\limits_j \exp\left(\beta z_j \right)}.
+$$
+
+In self-attention, this $\beta$ is $\frac{1}{\sqrt{d_k}}$, and $T$ is the standard deviation of the scalar product $\sqrt{d_k}$.
+
+Apply Softmax to column vectors in the matrix $\frac{QK^T}{\sqrt{d_k}}$, meaning each entry of the matrix $\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)_{N\times N}$ is obtained by taking the scalar product on the $i$-th row of $Q$ to multiply the $j-th$ column of $K^T$, then divide the scalar product by $\sqrt{d_k}$, and then apply Softmax function on each column of the matrix $\left(\frac{QK^T}{\sqrt{d_k}}\right)_{N\times N}$. Finally, take matrix multiplication between $\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)_{N\times N}$ and $V_{N \times d_v}$. 
+
+Hence, in self-attention, each attention, i.e. weight, between each element in the sequential input to the other element in the same sequential input was weighted by the Boltzmann distribution $\text{softmax}\left(\frac{\left( QK^T \right)_i}{\sqrt{d_k}} \right)_{i=1}^N$.
+
+Furthermore, because of the random initiation of each weight matrices, if this self-attention, i.e. weights assigning process were run in parallel, then the model can learn from more than one different perspectives. In \cite{vaswani2017attention}, this notion is defined as multi-head attention. Each self-attention function  $\text{Attention}\left(Q,K,V\right)_i$ is called $\text{head}_i$, where $i$ is from 1 to $H$. The output of all $H$ heads are concatenated to a matrix denoted by $\text{Concat}\left(\text{head}_1,...,\text{head}_H \right)$, then defined $\text{Multihead(Q,K,V)}:= \text{Concat}\left(\text{head}_1,...,\text{head}_H \right)\circ W^O$, where $W^O\in \mathbb{R}^{H\cdot d_v}\times \mathbb{R}^{d_{\text{out}}}$.
+
+
+Let $\epsilon>0$ be given. Because of the mathematical form of the Boltzmann distribution, if the input is $z_i+\epsilon$, then $\text{Softmax}(\beta z_i+\epsilon)=\text{Softmax}(\beta z_i).$ However, a naive but natural question to ask is what if the Boltzmann distribution, or the self-attention function attend at $\beta^\epsilon$ or $\beta\cdot\epsilon$? It is necessary to ask this question, since we want to be able to justify why and when it makes sense to use the scaling factor $\beta=\frac{1}{\sqrt{d_k}}$ in the self-attention function. Is it sufficient to ask this question? That is the question this paper is going to answer.
+
+
 \section{Algorithm}
 
 
