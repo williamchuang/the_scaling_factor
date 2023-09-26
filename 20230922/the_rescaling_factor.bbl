@@ -1,0 +1,20 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{1}
+
+\bibitem{folland1999real}
+Gerald~B Folland, \emph{Real analysis: modern techniques and their
+  applications}, vol.~40, John Wiley \& Sons, 1999.
+
+\bibitem{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N Gomez, {\L}ukasz Kaiser, and Illia Polosukhin, \emph{Attention is all
+  you need}, Advances in neural information processing systems \textbf{30}
+  (2017).
+
+\end{thebibliography}
