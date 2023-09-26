@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  26 SEP 2023 00:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  26 SEP 2023 00:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1283,7 +1283,7 @@ Package rerunfilecheck Info: File `the_rescaling_factor.out' has not changed.
 Here is how much of TeX's memory you used:
  32708 strings out of 478542
  661967 string characters out of 5850401
- 1108276 words of memory out of 5000000
+ 1108277 words of memory out of 5000000
  50013 multiletter control sequences out of 15000+600000
  470011 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1307,7 +1307,7 @@ xmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/f
 onts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm7.pfb>
-Output written on the_rescaling_factor.pdf (10 pages, 270160 bytes).
+Output written on the_rescaling_factor.pdf (10 pages, 272324 bytes).
 PDF statistics:
  227 PDF objects out of 1000 (max. 8388607)
  156 compressed objects within 2 object streams
