@@ -359,7 +359,7 @@ In this empirical example, when the string length is 20, the range of the non-ne
 
 Then, without running the above alternative algorithm, i.e. when the scaling factor $\beta$ is $\frac{1}{\sqrt{d_k}}$ the validation accuracy is 1.51\%, and the test accuracy is 1.50\%. To have a stable test accuracy above 95\%, the training sample size needs to be increased from 15000 to 25000.
 
-However, by applying the above alternative algorithm, the scaling factor is in $O(1)$, a constant $\sim 2.2$, with training sample size at 15000, the validation accuracy and test accuracy can already reach above 95\% stably. Thus, the above algorithms can not only compress the training set when the training samples are limited or rare, but also reduce the training time to reach the best accuracy.
+However, by applying the above alternative algorithm, the scaling factor is in $O(1)$, a constant $\sim 5$, with training sample size at 15000, the validation accuracy and test accuracy can already reach above 95\% stably. Thus, the above algorithms can not only compress the training set when the training samples are limited or rare, but also reduce the training time to reach the best accuracy.
 
 Furthermore, the above the model that achieved the above accuracy did not achieve it by memorizing the training examples. Since a 100\% accuracy is also achievable within the ensemble, and once achieve that 100\% accuracy the model can flip any input string with the same length and the range of the values of its each word. However, if it was by memorizing, then the model had to memorize $100^{20}$ strings with length 20 which is largely exceed the number of parameters of the model (less than 8000).
 
