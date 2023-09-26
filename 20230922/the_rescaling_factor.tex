@@ -348,43 +348,21 @@ This also answers the question asked in the previous section that it shows the s
 
 In practice, 709 is the upper bound of the exponent of the exponential function based $e$ in lots of machines before the machines start to overflow. Likewise, on each machine, there exists a non-negative integer $N$ such that the machine start to overflow the result. Hence, an alternative algorithm is: firstly try $ \beta \in \left\lbrace 10^N, \frac{1}{10^N} \right\rbrace$ for $N=0,1,2,...$, then run a binary search to narrow down the range of the best scaling factor $\beta$ during the training after either each iteration or batch.
 
-
-\begin{tikzpicture}[node distance=0.2cm]
-\node (start) [startstop] {Given a set of group generators that generates a discrete group $G=\left\langle g_1,g_2,...,g_n\right\rangle$, $G<\text{Isom}^+(\mathbb{B}^2)$ is a geometrically finite non-elementary Kleinian group};
-%\node (dec2) [decision, below of=start] {Is $G$ discrete?};
-%\node (stop2) [process, right of=dec2, xshift=8cm] {$\nexists \delta(G)$};
+A further meaning of this algorithm is showed in the next section by using an empirical example.
 
 
-\node (dec3) [decision, below of=start, yshift=-2cm] {Is $G$ non-elementary (Def. \ref{elementary}), without sharing a common fixed point (Thm. \ref{Theorem 5.3.3 ratcliffe}), and elements in its generator set are not all elliptic generators?};
-%\node (dec7) [decision, below of=dec3, yshift=-2cm] {Does $G$ have elliptic generators?};
+\section{Empirical example}
 
-\node (stop3) [process, right of=dec3, xshift=8cm] {$\delta(G)=0$, $G$ is elementary, but $G$ is not discrete, and can have common fixed points between generators};
-\node (dec4) [decision, below of=dec3, yshift=-6cm] {Find the largest Schottky subgroup $G'$ in $G$. Use Definition \ref{spacing difference}, \textit{well-ordering configuration}, and a method demonstated in Theorem \ref{main thm 2} and Example \ref{main thm 2 ex} to reach to $\Theta_M=\Theta_m$, and $\kappa_{sd}(G')=0$, if all imaginary part of diagonal entries of group generators of $G'$ vanish and $G'=G$, apply Theorem \ref{main thm 11} to derive $\dim_{H}(L(G'))$; else apply Theorem \ref{main thm 10} to obaint an least upper bound on $\delta(G')$, and for all cases, apply Proposition \ref{prop 1} to derive an lower bound};
+The task of the empirical example is to flip a given string of non-negative integers. In other words, the goal is to train a multihead in a transformer to learn a function that map each index $i$ of an integer in a string to the index $(n-i)+1$ in the new string that will be return by the model. Since the model needs to learn to swap the first and last elements in the string, it could be a challenging task for recurrent neural nets if the length of the input string is large.
 
-\node (dec6) [process, right of=dec4, xshift=8cm] {$\dim_H(L(G'))\leq \dim_H(L(G))$, equality holds if $G=G'$, and can be computed if all imaginary part of diagonal entries of group generators of $G'$ vanish.};
+In this empirical example, when the string length is 20, the range of the non-negative integers is between $0$ and $100$, and the number of samples used in training is 15000, 1000 samples for validation, and 100000 samples for testing. 
 
-%\node (pro3) [process, below of=dec4, yshift=-6cm] {use helper algorithm to find $\delta(G')$ as a lower bound, then use Abscissa convergence of $\mathcal{P}(G,t)$ to do a statistical estimation on $\delta(G)$; Thm. \ref{Theorem14.14inBorthwick} does not apply};
+Then, without running the above alternative algorithm, i.e. when the scaling factor $\beta$ is $\frac{1}{\sqrt{d_k}}$ the validation accuracy is 1.51\%, and the test accuracy is 1.50\%. To have a stable test accuracy above 95\%, the training sample size needs to be increased from 15000 to 25000.
 
-\draw [arrow] (start) -- (dec3);
-%\draw [arrow] (dec1) -- node[anchor=south] {no}(stop1);
-%\draw [arrow] (dec1) -- node[anchor=east] {yes}(dec2);
-%\draw [arrow] (dec2) -- node[anchor=south] {no}(stop2);
-\draw [arrow] (dec4) -- node[anchor=east] {}(dec6);
-\draw [arrow] (dec3) -- node[anchor=south] {no}(stop3);
-\draw [arrow] (dec3) -- node[anchor=east] {yes}(dec4);
-%\draw [arrow] (dec7) -- node[anchor=east] {no}(dec4);
+However, by applying the above alternative algorithm, the scaling factor is in $O(1)$, a constant $\sim 2.2$, with training sample size at 15000, the validation accuracy and test accuracy can already reach above 95\% stably. Thus, the above algorithms can not only compress the training set when the training samples are limited or rare, but also reduce the training time to reach the best accuracy.
 
+Furthermore, the above the model that achieved the above accuracy did not achieve it by memorizing the training examples. Since a 100\% accuracy is also achievable within the ensemble, and once achieve that 100\% accuracy the model can flip any input string with the same length and the range of the values of its each word. However, if it was by memorizing, then the model had to memorize $10^20$ strings with length 20 which is largely exceed the number of parameters of the model (less than 8000).
 
-%\draw [arrow] (dec6) -- node[anchor=east] {no}(pro3);
-%\draw [arrow] (dec6) -- node[anchor=south] {yes}(pro2);
-%\draw [arrow] (dec4) --  node[anchor=west, below=2pt ] {no} ++(3.5,0) |- (dec6);
-%\draw [arrow] (dec4.west) -|node[anchor=south]{no}++(-1,0)|- (dec6.west);
-%\draw [arrow] (dec7.west) -|node[anchor=south]{yes}++(-2,0)|- (pro3.west);
-%\path[line] (dec4) |- ([xshift=-0.5cm,yshift=-0.5cm]j.south west) |- (dec6);
-%\draw [arrow] (dec4.west) -- ++ (5em,0) node[above] {no}-- ++(5em,0) |- (dec6.west);
-\end{tikzpicture}
-
-\section{Empirical examples}
 \section{Discussion}
 \section{Conclusion}
 %\section{Limitation}
