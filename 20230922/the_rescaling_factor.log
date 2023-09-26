@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  25 SEP 2023 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  25 SEP 2023 23:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1202,76 +1202,76 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 297.
  [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 
-LaTeX Warning: Reference `elementary' on page 2 undefined on input line 320.
-
-
-LaTeX Warning: Reference `Theorem 5.3.3 ratcliffe' on page 2 undefined on input
- line 320.
+LaTeX Warning: Reference `elementary' on page 3 undefined on input line 337.
 
 
-LaTeX Warning: Reference `spacing difference' on page 2 undefined on input line
- 324.
+LaTeX Warning: Reference `Theorem 5.3.3 ratcliffe' on page 3 undefined on input
+ line 337.
 
 
-LaTeX Warning: Reference `main thm 2' on page 2 undefined on input line 324.
+LaTeX Warning: Reference `spacing difference' on page 3 undefined on input line
+ 341.
 
 
-LaTeX Warning: Reference `main thm 2 ex' on page 2 undefined on input line 324.
+LaTeX Warning: Reference `main thm 2' on page 3 undefined on input line 341.
+
+
+LaTeX Warning: Reference `main thm 2 ex' on page 3 undefined on input line 341.
 
 
 
-LaTeX Warning: Reference `main thm 11' on page 2 undefined on input line 324.
+LaTeX Warning: Reference `main thm 11' on page 3 undefined on input line 341.
 
 
-LaTeX Warning: Reference `main thm 10' on page 2 undefined on input line 324.
+LaTeX Warning: Reference `main thm 10' on page 3 undefined on input line 341.
 
 
-LaTeX Warning: Reference `prop 1' on page 2 undefined on input line 324.
+LaTeX Warning: Reference `prop 1' on page 3 undefined on input line 341.
 
 
-Overfull \hbox (13.9859pt too wide) in paragraph at lines 347--348
+Overfull \hbox (13.9859pt too wide) in paragraph at lines 364--365
 [] 
  []
 
-[2]
+[3]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 354.
+(Font)              <14.4> on input line 371.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 354.
+(hyperref)                removing `math shift' on input line 371.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 354.
+(hyperref)                removing `\begingroup' on input line 371.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 354.
+(hyperref)                removing `\endgroup' on input line 371.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@over' on input line 354.
+(hyperref)                removing `\@@over' on input line 371.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 354.
+(hyperref)                removing `\@ifnextchar' on input line 371.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 354.
+(hyperref)                removing `subscript' on input line 371.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 354.
+(hyperref)                removing `math shift' on input line 371.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 354.
+(hyperref)                removing `\@ifnextchar' on input line 371.
 
-[3] [4] [5] [6] [7] (./the_rescaling_factor.bbl) [8]
+[4] [5] [6] [7] [8] (./the_rescaling_factor.bbl) [9]
 (./the_rescaling_factor.aux)
 
 LaTeX Warning: There were undefined references.
@@ -1280,17 +1280,17 @@ Package rerunfilecheck Info: File `the_rescaling_factor.out' has not changed.
 (rerunfilecheck)             Checksum: 86EC658AE1D1CFDFF2D693F3DFB7C23D;892.
  ) 
 Here is how much of TeX's memory you used:
- 32706 strings out of 478542
- 661954 string characters out of 5850401
- 1107276 words of memory out of 5000000
+ 32707 strings out of 478542
+ 661960 string characters out of 5850401
+ 1108276 words of memory out of 5000000
  50013 multiletter control sequences out of 15000+600000
  470011 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,8n,122p,1527b,746s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
-21/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-d
-ist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/
+21/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/texmf-dist/
+fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/
 dvips/lm/lm-mathit.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/l
 m/lmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.p
 fb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/l
@@ -1299,16 +1299,17 @@ ve/2021/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2021/tex
 mf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2021/texmf-dist/fon
 ts/type1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/pu
 blic/lm/lmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr
-17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr
-/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/tex
-live/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/
-texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/
-fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on the_rescaling_factor.pdf (8 pages, 244864 bytes).
+17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr
+/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texli
+ve/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2021/te
+xmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/f
+onts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msbm7.pfb>
+Output written on the_rescaling_factor.pdf (9 pages, 266895 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
  205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
