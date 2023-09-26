@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  26 SEP 2023 00:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  26 SEP 2023 01:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1203,91 +1203,54 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-
-
-LaTeX Warning: Reference `elementary' on page 4 undefined on input line 358.
-
-
-LaTeX Warning: Reference `Theorem 5.3.3 ratcliffe' on page 4 undefined on input
- line 358.
-
-
-LaTeX Warning: Reference `spacing difference' on page 4 undefined on input line
- 362.
-
-
-LaTeX Warning: Reference `main thm 2' on page 4 undefined on input line 362.
-
-
-LaTeX Warning: Reference `main thm 2 ex' on page 4 undefined on input line 362.
-
-
-
-LaTeX Warning: Reference `main thm 11' on page 4 undefined on input line 362.
-
-
-LaTeX Warning: Reference `main thm 10' on page 4 undefined on input line 362.
-
-
-LaTeX Warning: Reference `prop 1' on page 4 undefined on input line 362.
-
-
-Overfull \hbox (28.9859pt too wide) in paragraph at lines 385--386
-[][] 
- []
-
-[4]
+ [4]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 392.
+(Font)              <14.4> on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 392.
+(hyperref)                removing `math shift' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 392.
+(hyperref)                removing `\begingroup' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 392.
+(hyperref)                removing `\endgroup' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@over' on input line 392.
+(hyperref)                removing `\@@over' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 392.
+(hyperref)                removing `\@ifnextchar' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 392.
+(hyperref)                removing `subscript' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 392.
+(hyperref)                removing `math shift' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 392.
+(hyperref)                removing `\@ifnextchar' on input line 370.
 
-[5] [6] [7] [8] [9] (./the_rescaling_factor.bbl) [10]
-(./the_rescaling_factor.aux)
-
-LaTeX Warning: There were undefined references.
-
+[5] [6] [7] [8] (./the_rescaling_factor.bbl) [9] (./the_rescaling_factor.aux)
 Package rerunfilecheck Info: File `the_rescaling_factor.out' has not changed.
-(rerunfilecheck)             Checksum: 2A5F95CB44D0943CC17C871A082C3329;930.
+(rerunfilecheck)             Checksum: DC1721F35CA0B2C4DE7B9E7C2498E3B6;925.
  ) 
 Here is how much of TeX's memory you used:
- 32708 strings out of 478542
- 661967 string characters out of 5850401
- 1108277 words of memory out of 5000000
- 50013 multiletter control sequences out of 15000+600000
+ 32596 strings out of 478542
+ 659692 string characters out of 5850401
+ 1108275 words of memory out of 5000000
+ 49902 multiletter control sequences out of 15000+600000
  470011 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,8n,122p,1527b,746s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 116i,8n,122p,1527b,402s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
 21/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/texmf-dist/
@@ -1307,10 +1270,10 @@ xmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/f
 onts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm7.pfb>
-Output written on the_rescaling_factor.pdf (10 pages, 272324 bytes).
+Output written on the_rescaling_factor.pdf (9 pages, 267907 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
  205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
