@@ -35,7 +35,7 @@
     {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
     {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
     {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    { }{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
     {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
     {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
     {€}{{\EUR}}1 {£}{{\pounds}}1
@@ -79,7 +79,7 @@
     {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
     {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
     {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    { }{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
     {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
     {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
     {€}{{\EUR}}1 {£}{{\pounds}}1
@@ -327,7 +327,7 @@ Let $\epsilon>0$ be given. Because of the mathematical form of the Boltzmann dis
 
 \section{Algorithm}
 
-To be able to make sense to use the scaling factor $\beta=\frac{1}{\sqrt{d_k}}$ in self-attention function, the four assumptions are necessary. 
+To be able to make sense to use the scaling factor $\beta=\frac{1}{\sqrt{d_k}}$ in the self-attention function, the four assumptions are necessary. 
 
 Within the four assumptions, the first assumption is usually fixed when self-attention is considered to be applied. 
 
@@ -346,14 +346,14 @@ To solve this problem, the solution could be written as an algorithm that it mea
 This also answers the question asked in the previous section that it shows the sufficiency to ask the question.
 
 
-In practice, 709 is the upper bound of the exponent of the exponential function based $e$ in lots of machines before the machines start to overflow. Likewise, on each machine, there exists a non-negative integer $N$ such that the machine start to overflow the result. Hence, an alternative algorithm is: firstly try $ \beta \in \left\lbrace 10^N, \frac{1}{10^N} \right\rbrace$ for $N=0,1,2,...$, then run a binary search to narrow down the range of the best scaling factor $\beta$ during the training after either each iteration or batch.
+In practice, 709 is the upper bound of the exponent of the exponential function based $e$ in lots of machines before the machines start to overflow. Likewise, on each machine, there exists a non-negative integer $N$ such that the machine starts to overflow the result. Hence, an alternative algorithm is: firstly try $ \beta \in \left\lbrace 10^N, \frac{1}{10^N} \right\rbrace$ for $N=0,1,2,...$, then run a binary search to narrow down the range of the best scaling factor $\beta$ during the training after either each iteration or batch.
 
-A further meaning of this algorithm is showed in the next section by using an empirical example.
+A further meaning of this algorithm is shown in the next section by using an empirical example.
 
 
 \section{Empirical example}
 
-The task of the empirical example is to flip a given string of non-negative integers. In other words, the goal is to train a multihead in a transformer to learn a function that map each index $i$ of an integer in a string to the index $(n-i)+1$ in the new string that will be return by the model. Since the model needs to learn to swap the first and last elements in the string, it could be a challenging task for recurrent neural nets if the length of the input string is large.
+The task of the empirical example is to flip a given string of non-negative integers. In other words, the goal is to train a multihead in a transformer to learn a function that maps each index $i$ of an integer in a string to the index $(n-i)+1$ in the new string that will be returned by the model. Since the model needs to learn to swap the first and last elements in the string, it could be a challenging task for recurrent neural nets if the length of the input string is large.
 
 In this empirical example, when the string length is 20, the range of the non-negative integers is between $0$ and $100$, and the number of samples used in training is 15000, 1000 samples for validation, and 100000 samples for testing. 
 
@@ -361,7 +361,7 @@ Then, without running the above alternative algorithm, i.e. when the scaling fac
 
 However, by applying the above alternative algorithm, the scaling factor is in $O(1)$, a constant $\sim 5$, with training sample size at 15000, the validation accuracy and test accuracy can already reach above 95\% stably. Thus, the above algorithms can not only compress the training set when the training samples are limited or rare, but also reduce the training time to reach the best accuracy.
 
-Furthermore, the above the model that achieved the above accuracy did not achieve it by memorizing the training examples. Since a 100\% accuracy is also achievable within the ensemble, and once achieve that 100\% accuracy the model can flip any input string with the same length and the range of the values of its each word. However, if it was by memorizing, then the model had to memorize $100^{20}$ strings with length 20 which is largely exceed the number of parameters of the model (less than 8000).
+Furthermore, the model that achieved the above accuracy did not achieve it by memorizing the training examples. Since a 100\% accuracy is also achievable within the ensemble, and once achieved that 100\% accuracy the model can flip any input string with the same length and the range of the values of its each word. However, if it was by memorizing, then the model had to memorize $100^{20}$ strings with length 20 which greatly exceed the number of parameters of the model (less than 8000).
 
 \section{Discussion}
 \section{Conclusion}
@@ -540,4 +540,5 @@ $$\frac{1}{\sqrt{\text{Var}\left(QK^T \right)}}=\frac{1}{\sqrt{d_k}}.$$
 \bibliographystyle{amsplain} % We choose the "plain" reference style
 \bibliography{refs} % Entries are in the refs.bib file
 \end{document}
+
 
