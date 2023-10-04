@@ -294,7 +294,13 @@ graphicx,enumerate,setspace,verbatim,tocloft,rotating}
 %\end{tcolorbox}
 
 \section{Introduction}
-In the context of deep learning neural networks, attention algorithms are designed for determining connections by weights between two elements in a sequential inputs. Self-attention was proposed by Vaswani et. al.\cite{vaswani2017attention} in 2017. Suppose a sequential input $X\in \mathbb{R}^N\times \mathbb{R}^{d_x}$ is given. Denote $Q^t:=(XW_q)^t\in \mathbb{R}^{d_q}\times\mathbb{R}^{N}, K^t:=(XW_k)^t\in \mathbb{R}^{d_k}\times\mathbb{R}^{N}$, and $V^t:=(XW_v)^t\in \mathbb{R}^{d_v}\times\mathbb{R}^{N}$. The notations for denoting column vectors of each these three matrices are: $q^t_i\in \mathbb{R}^{d_q}$, $k^t_i\in \mathbb{R}^{d_k}$, and $q^v_i\in \mathbb{R}^{d_v}$. The $j$-th component of each column vector is denoted as $q^t_{ij}\in \mathbb{R}$, $k^t_{ij}\in \mathbb{R}$, and $q^v_{ij}\in \mathbb{R}$.
+
+
+In the context of deep learning neural networks, attention algorithms are designed for determining connections by weights between two elements in a sequential inputs. Self-attention was proposed by Vaswani et. al.\cite{vaswani2017attention} in 2017. A statistics uses data from Google Scholar\cite{crew2020google}, shows that the paper written by Vaswani et. al.\cite{vaswani2017attention} was the fourth most cited paper in artificial intelligence upto 2020. In 2023, \cite{vaswani2017attention} becomes the second most cited paper in that original list. Self-attention mechanism has been implemented into almost all most recent LLM models. However, based on authors' knowledge we have not seen any papers have an mathematical and statistical analysis on the question raised and answered in this paper. The issue pointed out by this paper can still be found in the most recent publications that implemented self-attention in their models.
+
+
+
+Suppose a sequential input $X\in \mathbb{R}^N\times \mathbb{R}^{d_x}$ is given. Denote $Q^t:=(XW_q)^t\in \mathbb{R}^{d_q}\times\mathbb{R}^{N}, K^t:=(XW_k)^t\in \mathbb{R}^{d_k}\times\mathbb{R}^{N}$, and $V^t:=(XW_v)^t\in \mathbb{R}^{d_v}\times\mathbb{R}^{N}$. The notations for denoting column vectors of each these three matrices are: $q^t_i\in \mathbb{R}^{d_q}$, $k^t_i\in \mathbb{R}^{d_k}$, and $q^v_i\in \mathbb{R}^{d_v}$. The $j$-th component of each column vector is denoted as $q^t_{ij}\in \mathbb{R}$, $k^t_{ij}\in \mathbb{R}$, and $q^v_{ij}\in \mathbb{R}$.
 
 
 Now, in a standard implementation of a transformer-based model or any models that have self-attention mechanism implemented in it, $W_k, W_v,$ and $W_q$ are initiated in a way to satisfy the following four conditions:
@@ -392,6 +398,10 @@ However, by applying the above alternative algorithm, the scaling factor is in $
 Furthermore, the model that achieved the above accuracy did not achieve it by memorizing the training examples. Since a 100\% accuracy is also achievable within the ensemble, and once achieved that 100\% accuracy the model can flip any input string with the same length and the range of the values of its each word. However, if it was by memorizing, then the model had to memorize $100^{20}$ strings with length 20 which greatly exceed the number of parameters of the model (less than 8000).
 
 \section{Discussion}
+
+The empirical results in the previous section shows that with dynamic scaling factor being implemented, the model can reach an accuracy higher than 96\% with about half of the training data compared to the fixed scaling factor introduced in the self-attention.
+
+Our empirical model only has one task. If it is a large model, the number of features need to be learned by a large model such as LLMs have several order of magnitude higher than the model that only needs to learn one task. Hence, the difference of the number of training samples needed between models that use dynamic or static scaling factor will be an exponential growth when the number of features that need to be learned grow. 
 \section{Conclusion}
 %\section{Limitation}
 
