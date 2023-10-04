@@ -294,32 +294,60 @@ graphicx,enumerate,setspace,verbatim,tocloft,rotating}
 %\end{tcolorbox}
 
 \section{Introduction}
-In the context of deep learning neural networks, attention algorithms are designed for determining connections by weights between two elements in a sequential inputs. Self-attention was proposed by Vaswani et. al.\cite{vaswani2017attention} in 2017. Suppose a sequential input $X\in \mathbb{R}^N\times \mathbb{R}^{d_x}$ is given. Let $Q:=XW_q\in \mathbb{R}^{N}\times\mathbb{R}^{d_q}, K:=XW_k\in \mathbb{R}^{N}\times\mathbb{R}^{d_k}$, and $V:=XW_v\in \mathbb{R}^{N}\times\mathbb{R}^{d_v}$ where $W_k, W_v,$ and $W_q$ are initiated such that (i) $W_q\in\mathbb{R}^{d_x}\times\mathbb{R}^{d_q}$, $W_k\in\mathbb{R}^{d_x}\times\mathbb{R}^{d_k}$, and $W_v\in\mathbb{R}^{d_x} \times \mathbb{R}^{d_v}$, (ii) the variance of the inner product of each row vector in $X$ with each column vector in either $W_q, W_k,$ or $W_v$ to be unit, (iii) each row vector in $Q$ denoted by $q_i$, and each row vector in $K$ denoted by $k_i$ to be random variables with zero means, i.e. $\mathbb{E} q_i=0=\mathbb{E} k_i, \forall i$, and unit variances, i.e $\text{Var} q_i=1=\text{Var}k_i$, where $i\in\left\lbrace 1,...,d_k\right\rbrace$, and (iv) $q_i$ and $k_j$ are all independent in the following ways: $\text{Cov}\left( q_i,k_i\right)=0, \forall i,$ $\text{Cov}\left( q_i,q_j\right)=0, \forall i\neq j, \text{ and}$ $\text{Cov}\left( k_i,k_j\right)=0, \forall i\neq j.$ By convention, let $d_k=d_q$. Then the each scalar product of column vectors in $Q$ and $K$ has variance $d_k$ (see Appendix).
- 
-\begin{definition}[Self-attention]
-The self-attention is the following function
-$$
-\text{Attention}\left(Q,K,V\right):= \left( \text{softmax}\left(\frac{\left( QK^T \right)_i}{\sqrt{d_k}} \right)_{i=1}^N \right)_{N \times N} \circ V_{N \times d_v}.
-$$
+In the context of deep learning neural networks, attention algorithms are designed for determining connections by weights between two elements in a sequential inputs. Self-attention was proposed by Vaswani et. al.\cite{vaswani2017attention} in 2017. Suppose a sequential input $X\in \mathbb{R}^N\times \mathbb{R}^{d_x}$ is given. Denote $Q^t:=(XW_q)^t\in \mathbb{R}^{d_q}\times\mathbb{R}^{N}, K^t:=(XW_k)^t\in \mathbb{R}^{d_k}\times\mathbb{R}^{N}$, and $V^t:=(XW_v)^t\in \mathbb{R}^{d_v}\times\mathbb{R}^{N}$. The notations for denoting column vectors of each these three matrices are: $q^t_i\in \mathbb{R}^{d_q}$, $k^t_i\in \mathbb{R}^{d_k}$, and $q^v_i\in \mathbb{R}^{d_v}$. The $j$-th component of each column vector is denoted as $q^t_{ij}\in \mathbb{R}$, $k^t_{ij}\in \mathbb{R}$, and $q^v_{ij}\in \mathbb{R}$.
 
-\end{definition}
-\noindent\textbf{Remark:} The Softmax function is defined using the Boltzmann distribution function: Given a finite sequence $\left\lbrace z_i\right\rbrace, j\in\left\lbrace 1,...,n\right\rbrace$, then 
+
+Now, in a standard implementation of a transformer-based model or any models that have self-attention mechanism implemented in it, $W_k, W_v,$ and $W_q$ are initiated in a way to satisfy the following four conditions:
+\begin{itemize}
+\item[(i)] $W_q\in\mathbb{R}^{d_x}\times\mathbb{R}^{d_q}$, $W_k\in\mathbb{R}^{d_x}\times\mathbb{R}^{d_k}$, and $W_v\in\mathbb{R}^{d_x} \times \mathbb{R}^{d_v}$,
+\item[(ii)] the variance of the inner product of each column vector in $X^t$ with each column vector in either $W_q, W_k,$ or $W_v$ to be unit (all these inner products results in entries matrices: $Q^t$, $K^t$, and $V^t$),
+\item[(iii)] each $q_i^t=(q_{i1},...,q_{id_q})^t$ and each $k_i^t=(k_{i1},...,k_{id_k})^t$ to be random variables with zero means, i.e. $\mathbb{E}\left( q_i^t \right) = \mathbb{E}\left(\left\lbrace q_{ij} \right\rbrace_{j=1}^{d_q}\right) =0=\mathbb{E} \left(\left\lbrace k_{ij} \right\rbrace_{j=1}^{d_k}\right)=\mathbb{E}\left( k_i^t \right), \forall i\in\left\lbrace 1,...,N\right\rbrace$, and unit variances, i.e $\text{Var}\left(q^t_i\right) =\text{Var}\left(\left\lbrace q_{ij} \right\rbrace_{j=1}^{d_q}\right) =1=\text{Var} \left(\left\lbrace k_{ij} \right\rbrace_{j=1}^{d_k}\right)=\text{Var}\left(k^t_i\right), \forall i\in\left\lbrace 1,...,N\right\rbrace$, and
+\item[(iv)] $q_{i_1}^t$ and $k_{i_2}^t$ are all independent in the following ways: $\text{Cov}\left( q^t_{i_1},k^t_{i_2}\right)=0, \forall i_1,i_2,$ $\text{Cov}\left( q^t_{i_1},q^t_{i_2}\right)=0, \forall i_1\neq i_2,$, $\text{Cov}\left( k^t_{i_1},k^t_{i_2}\right)=0, \forall i_1\neq i_2.$ 
+\end{itemize}
+Furthermore, by convention, let $d_k=d_q$. Then, with the four above conditions satisfied, the any scalar products of column vectors in $Q^t$ and $K$ have variance $d_k$ (see Appendix).
+
+\begin{definition}
+The Softmax function is defined using the Boltzmann distribution function: Given a sequential inputs (i.e. consider the finite sequence as a vector): $\left\lbrace z_i\right\rbrace, z_j\in\mathbb{R},\forall j\in\left\lbrace 1,...,n\right\rbrace$, then 
 $$
 \text{Softmax}(z_i) := \frac{\exp\left(z_i \right) }{\sum\limits_j \exp\left(z_j \right)}.
 $$
+\end{definition}
 
-Since the sum of the above function adds up to one, i.e. $\sum\limits_{i=1}^n \text{Softmax}(z_i) =1$, it is a probability distribution. In physics, this distribution is called Boltzmann distribution. Furthermore, this distribution can be scaled by using a parameter $\beta$, and $\beta$ is the inverse of the temperature of the physical system described by the distribution:
+Furthermore, this distribution can be scaled by using a parameter $\beta$, and $\beta$ is the inverse of the temperature of the physical system described by the distribution:
 $$
 \text{Softmax}(\beta z_i) := \frac{\exp\left(\beta z_i \right) }{\sum\limits_j \exp\left(\beta z_j \right)}.
 $$
 
+In order to take inputs that are tensors, for each component of a tensor $a_{i_1i_2...i_n}$, the softmax is operated on its last dimension $i_n$, and also output a tensor which has indices $i_1...i_n$. 
+For example, for a $N\times d$ tensor (i.e. a matrix), the softmax is taking on its last dimension, i.e. which equals $d$. The output is also an $N\times d$ matrix, say it is denoted by $\text{softmax}(a_{i_1i_2...i_n})_{N\times d}$. Then, each entry $\text{softmax}(a_{i_1i_2})_{ij}$ of the matrix $\text{softmax}(a_{i_1i_2})_{N\times d}$ is defined as
+$$
+\text{softmax}(a_{i_1i_2})_{ij}:=\frac{\exp\left(\beta a_{ij} \right) }{\sum\limits_{i_1=1}^N \exp\left(\beta a_{i_1j} \right)}.
+$$
+Operating on the last dimension means to fix the last index in the normalization. In this example that means to consider each column vector in $a_{i_1i_2}$ as a set of data or a physical system that Boltzmann distribution was applied to, and the result $\text{softmax}(a_{i_1i_2})_{ij}$ is the probability of the configuration $a_{ij}$. The denominator is also called the normalization factor or the partition function that it sums all possible configurations using to given data $a_{i_1i_2}$ where $i_2=j$ to be the input of the exponential function $\exp\left(\beta s \right), s\in\mathbb{R}$.
+
+Furthermore, for a fixed $j$, the probability $\text{softmax}(a_{i_1i_2})_{ij}$ can be consider as the interaction strength between the $i$-th and $j$-th particles. 
+
+In the following example, the self-attention mechanism, the $i$-th particle would be the column vector $q_i^t$ in the matrix $Q^t$, and the $j$-th particle would be the column vector $k^t_j$ in the matrix $K^t$.
+
+\begin{definition}[Self-attention]
+With the notations $Q,K$ and $V$, defined as above, \textit{the self-attention mechanism} is the following function
+$$
+\text{Attention}\left(Q,K,V\right):= \text{softmax}\left(\beta\left( QK^T \right)  \right)  V,
+$$
+where $\beta:=\frac{1}{\sqrt{d_k}}\in\mathbb{R}$.
+\end{definition}
+
+
+
+
 In self-attention, this $\beta$ is $\frac{1}{\sqrt{d_k}}$, and $T$ is the standard deviation of the scalar product $\sqrt{d_k}$.
 
-Apply Softmax to column vectors in the matrix $\frac{QK^T}{\sqrt{d_k}}$, meaning each entry of the matrix $\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)_{N\times N}$ is obtained by taking the scalar product on the $i$-th row of $Q$ to multiply the $j-th$ column of $K^T$, then divide the scalar product by $\sqrt{d_k}$, and then apply Softmax function on each column of the matrix $\left(\frac{QK^T}{\sqrt{d_k}}\right)_{N\times N}$. Finally, take matrix multiplication between $\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)_{N\times N}$ and $V_{N \times d_v}$. 
+By definition of softmax, apply softmax to the matrix $\frac{QK^T}{\sqrt{d_k}}$ means to apply Softmax function on each column of the matrix $\left(\frac{QK^T}{\sqrt{d_k}}\right)_{N\times N}$, and for defining the self-attention function, take a matrix multiplication between $\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)_{N\times N}$ and the value matrix $V_{N \times d_v}$. 
 
-Hence, in self-attention, each attention, i.e. weight, between each element in the sequential input to the other element in the same sequential input was weighted by the Boltzmann distribution $\text{softmax}\left(\frac{\left( QK^T \right)_i}{\sqrt{d_k}} \right)_{i=1}^N$.
+\textbf{The question} that asked and answered by this paper is the following.
 
-Furthermore, because of the random initiation of each weight matrices, if this self-attention, i.e. weights assigning process were run in parallel, then the model can learn from more than one different perspectives. In \cite{vaswani2017attention}, this notion is defined as multi-head attention. Each self-attention function  $\text{Attention}\left(Q,K,V\right)_i$ is called $\text{head}_i$, where $i$ is from 1 to $H$. The output of all $H$ heads are concatenated to a tensor denoted by $\text{Concat}\left(\text{head}_1,...,\text{head}_H \right)$, then defined $\text{Multihead(Q,K,V)}:= \text{Concat}\left(\text{head}_1,...,\text{head}_H \right)\circ W^O$, where $W^O\in \mathbb{R}^{H\cdot d_v}\times \mathbb{R}^{d_{\text{out}}}$.
+
+Because of the random initiation of each weight matrices, if this self-attention, i.e. weights assigning process were run in parallel, then the model can learn from more than one different perspectives. In \cite{vaswani2017attention}, this notion is defined as multi-head attention. Each self-attention function  $\text{Attention}\left(Q,K,V\right)_i$ is called $\text{head}_i$, where $i$ is from 1 to $H$. The output of all $H$ heads are concatenated to a tensor denoted by $\text{Concat}\left(\text{head}_1,...,\text{head}_H \right)$, then defined $\text{Multihead(Q,K,V)}:= \text{Concat}\left(\text{head}_1,...,\text{head}_H \right) W^O$, where $W^O\in \mathbb{R}^{H\cdot d_v}\times \mathbb{R}^{d_{\text{out}}}$.
 
 
 Let $\epsilon>0$ be given. Because of the mathematical form of the Boltzmann distribution, if the input is $z_i+\epsilon$, then $\text{Softmax}(\beta z_i+\epsilon)=\text{Softmax}(\beta z_i).$ However, a naive but natural question to ask is what if the scaling factor $\beta$ in Boltzmann distribution, or the self-attention function, is modified into the form $\beta^\epsilon$ or $\beta\cdot\epsilon$? It is necessary to ask this question, since we want to be able to justify why and when it makes sense to use the scaling factor $\beta=\frac{1}{\sqrt{d_k}}$ in the self-attention function. Is it sufficient to ask this question? That is the question this paper is going to answer. The next section provides a solution to this question.
