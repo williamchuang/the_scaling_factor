@@ -7,9 +7,9 @@
 \providecommand{\href}[2]{#2}
 \begin{thebibliography}{1}
 
-\bibitem{folland1999real}
-Gerald~B Folland, \emph{Real analysis: modern techniques and their
-  applications}, vol.~40, John Wiley \& Sons, 1999.
+\bibitem{crew2020google}
+Bec Crew, \emph{Google scholar reveals its most influential papers for 2020},
+  Nature Index \textbf{13} (2020).
 
 \bibitem{vaswani2017attention}
 Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,

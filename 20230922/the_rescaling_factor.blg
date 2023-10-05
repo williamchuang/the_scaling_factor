@@ -3,46 +3,47 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: the_rescaling_factor.aux
 The style file: amsplain.bst
 Database file #1: refs.bib
+Warning--missing pages in crew2020google
 Warning--missing pages in vaswani2017attention
 You've used 2 entries,
             2213 wiz_defined-function locations,
-            511 strings with 4297 characters,
-and the built_in function-call counts, 684 in all, are:
+            511 strings with 4286 characters,
+and the built_in function-call counts, 672 in all, are:
 = -- 47
 > -- 50
-< -- 1
+< -- 0
 + -- 20
 - -- 18
-* -- 64
-:= -- 123
+* -- 69
+:= -- 121
 add.period$ -- 2
 call.type$ -- 2
 change.case$ -- 15
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 24
-empty$ -- 45
+cite$ -- 4
+duplicate$ -- 22
+empty$ -- 41
 format.name$ -- 18
-if$ -- 126
+if$ -- 120
 int.to.chr$ -- 0
 int.to.str$ -- 2
-missing$ -- 5
+missing$ -- 4
 newline$ -- 16
 num.names$ -- 4
-pop$ -- 20
+pop$ -- 19
 preamble$ -- 1
 purify$ -- 13
 quote$ -- 0
-skip$ -- 11
+skip$ -- 10
 stack$ -- 0
 substring$ -- 10
 swap$ -- 4
-text.length$ -- 1
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 6
-warning$ -- 1
+type$ -- 8
+warning$ -- 2
 while$ -- 4
 width$ -- 3
-write$ -- 25
-(There was 1 warning)
+write$ -- 23
+(There were 2 warnings)
