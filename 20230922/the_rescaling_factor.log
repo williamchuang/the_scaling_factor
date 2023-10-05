@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  4 OCT 2023 21:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  4 OCT 2023 22:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1195,15 +1195,15 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 28
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 303.
+(Font)              <10> on input line 302.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 303.
+(Font)              <7> on input line 302.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 303.
+(Font)              <5> on input line 302.
  [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (1.49255pt too wide) in paragraph at lines 311--312
+Overfull \hbox (1.49255pt too wide) in paragraph at lines 310--311
 []$\OML/lmm/m/it/10 q[]$ \T1/lmr/m/n/10 and $\OML/lmm/m/it/10 k[]$ \T1/lmr/m/n/
 10 are all in-de-pen-dent in the fol-low-ing ways: $[] [] \OT1/lmr/m/n/10 = 0\O
 ML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 8\OML/lmm/m/it/10 i[]; i[];$ $[] [] \OT1/lmr/
@@ -1257,7 +1257,7 @@ Here is how much of TeX's memory you used:
  49903 multiletter control sequences out of 15000+600000
  470011 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 116i,6n,122p,989b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 116i,6n,122p,782b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
 21/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/texmf-dist/
@@ -1276,7 +1276,7 @@ ve/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2021/te
 xmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/f
 onts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on the_rescaling_factor.pdf (8 pages, 267351 bytes).
+Output written on the_rescaling_factor.pdf (8 pages, 267331 bytes).
 PDF statistics:
  213 PDF objects out of 1000 (max. 8388607)
  145 compressed objects within 2 object streams
