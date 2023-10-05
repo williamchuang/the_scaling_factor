@@ -296,8 +296,7 @@ graphicx,enumerate,setspace,verbatim,tocloft,rotating}
 \section{Introduction}
 
 
-In the context of deep learning neural networks, attention algorithms are designed for determining connections by weights between two elements in a sequential inputs. Self-attention was proposed by Vaswani et. al.\cite{vaswani2017attention} in 2017. A statistics uses data from Google Scholar\cite{crew2020google}, shows that the paper written by Vaswani et. al.\cite{vaswani2017attention} was the fourth most cited paper in artificial intelligence upto 2020. In 2023, \cite{vaswani2017attention} becomes the second most cited paper in that original list. Self-attention mechanism has been implemented into almost all most recent LLM models. However, based on authors' knowledge we have not seen any papers have an mathematical and statistical analysis on the question raised and answered in this paper. The issue pointed out by this paper can still be found in the most recent publications that implemented self-attention in their models.
-
+In the context of deep learning neural networks, attention algorithms are designed for determining connections by weights between two elements in a sequential inputs. Self-attention was proposed by Vaswani et. al.\cite{vaswani2017attention} in 2017. A statistics uses data from Google Scholar\cite{crew2020google}, shows that the paper written by Vaswani et. al.\cite{vaswani2017attention} was the fourth most cited paper in artificial intelligence upto 2020. In 2023, \cite{vaswani2017attention} becomes the second most cited paper in that original list. Self-attention mechanism has been implemented into almost all most recent LLM models. 
 
 
 Suppose a sequential input $X\in \mathbb{R}^N\times \mathbb{R}^{d_x}$ is given. Denote $Q^t:=(XW_q)^t\in \mathbb{R}^{d_q}\times\mathbb{R}^{N}, K^t:=(XW_k)^t\in \mathbb{R}^{d_k}\times\mathbb{R}^{N}$, and $V^t:=(XW_v)^t\in \mathbb{R}^{d_v}\times\mathbb{R}^{N}$. The notations for denoting column vectors of each these three matrices are: $q^t_i\in \mathbb{R}^{d_q}$, $k^t_i\in \mathbb{R}^{d_k}$, and $q^v_i\in \mathbb{R}^{d_v}$. The $j$-th component of each column vector is denoted as $q^t_{ij}\in \mathbb{R}$, $k^t_{ij}\in \mathbb{R}$, and $q^v_{ij}\in \mathbb{R}$.
@@ -358,6 +357,7 @@ Because of the random initiation of each weight matrices, if this self-attention
 
 Let $\epsilon>0$ be given. Because of the mathematical form of the Boltzmann distribution, if the input is $z_i+\epsilon$, then $\text{Softmax}(\beta z_i+\epsilon)=\text{Softmax}(\beta z_i).$ However, a naive but natural question to ask is what if the scaling factor $\beta$ in Boltzmann distribution, or the self-attention function, is modified into the form $\beta^\epsilon$ or $\beta\cdot\epsilon$? It is necessary to ask this question, since we want to be able to justify why and when it makes sense to use the scaling factor $\beta=\frac{1}{\sqrt{d_k}}$ in the self-attention function. Is it sufficient to ask this question? That is the question this paper is going to answer. The next section provides a solution to this question.
 
+However, a mathematical and statistical analysis on the question raised and answered in this paper was not found in the literature, and the issue pointed out by this paper can still be found in the most recent publications that implemented self-attention in their models.
 
 \section{Algorithm}
 
