@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  4 OCT 2023 23:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2021.8.18)  6 OCT 2023 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1247,39 +1247,48 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 408.
 
 [6] (./the_rescaling_factor.bbl [7]) [8] (./the_rescaling_factor.aux)
-Package rerunfilecheck Info: File `the_rescaling_factor.out' has not changed.
-(rerunfilecheck)             Checksum: DC1721F35CA0B2C4DE7B9E7C2498E3B6;925.
+
+Package rerunfilecheck Warning: File `the_rescaling_factor.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `the_rescaling_factor.out':
+(rerunfilecheck)             Before: 864730A8C834BDDE251243513D0DDBBD;1236
+(rerunfilecheck)             After:  DC1721F35CA0B2C4DE7B9E7C2498E3B6;925.
  ) 
 Here is how much of TeX's memory you used:
- 32591 strings out of 478542
- 659634 string characters out of 5850401
- 1108273 words of memory out of 5000000
+ 32592 strings out of 478542
+ 659653 string characters out of 5850401
+ 1108279 words of memory out of 5000000
  49903 multiletter control sequences out of 15000+600000
  470011 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,6n,122p,782b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
-texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
-21/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/texmf-dist/
-fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/
-dvips/lm/lm-mathit.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/l
-m/lmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.p
-fb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/l
-ocal/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texli
-ve/2021/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2021/tex
-mf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2021/texmf-dist/fon
-ts/type1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/pu
-blic/lm/lmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr
-17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr
-/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texli
-ve/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2021/te
-xmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/f
-onts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb>
-Output written on the_rescaling_factor.pdf (8 pages, 267268 bytes).
+pdfTeX warning (dest): name{subsection.3.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/te
+xlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021
+/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dv
+ips/lm/lm-mathit.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/
+lmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
+></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/loc
+al/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive
+/2021/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2021/texmf
+-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts
+/type1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/publ
+ic/lm/lmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr17
+.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/l
+ocal/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive
+/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2021/texm
+f-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/fon
+ts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb>
+Output written on the_rescaling_factor.pdf (8 pages, 267504 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
+ 214 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 500000)
  205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
