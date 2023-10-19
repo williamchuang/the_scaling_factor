@@ -397,6 +397,47 @@ However, by applying the above alternative algorithm, the scaling factor is in $
 
 Furthermore, the model that achieved the above accuracy did not achieve it by memorizing the training examples. Since a 100\% accuracy is also achievable within the ensemble, and once achieved that 100\% accuracy the model can flip any input string with the same length and the range of the values of its each word. However, if it was by memorizing, then the model had to memorize $100^{20}$ strings with length 20 which greatly exceed the number of parameters of the model (less than 8000).
 
+The following results were obtained by restarting the training and using the following procedure:
+\begin{itemize}
+\item[Step 1] Start with the smallest possible amount of data and set dynamic scaling factor to 1.
+\item[Step 2] Gradually add certain small amount of data to reach an accuracy greater than 50 percent.
+\item[Step 3] Using binary search to narrow down the best possible dynamic scaling factor $\beta$.
+\item[Step 4] Downsizing the training set size to the minimum with $\beta$ to be fixed.
+\item[Step 5] Using the same initialization (model size, the range of the string, the string length, particularly, the training set size) but change $\beta$ from the fixed value derived from step 3 to the value suggested by the old method\cite{vaswani2017attention}, i.e. set $\beta=\frac{1}{\sqrt{d_k}}$, and record the test accuracy.
+\end{itemize}
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{||c c c c c||} 
+ \hline
+ Methods & Input Range & String Length & Training Set Size & Test Accuracy \\ [0.5ex] 
+ \hline\hline
+ Old Method: $\beta=\frac{1}{\sqrt{d_k}}$  & 100 & 20 & 15000 & 1.5\% \\ 
+ New Method: $\beta=5$  & 100 & 20 & 15000 & 96\% \\
+ \hline
+ Old Method: $\beta=\frac{1}{\sqrt{d_k}}$  & 100 & 200 & 19300 & 1.23\%\\
+ New Method: $\beta=0.16$  & 100 & 200 & 19300 &  100\%\\
+ \hline
+ Old Method: $\beta=\frac{1}{\sqrt{d_k}}$  & 10 & 20 & 8000 &  18.56\%\\ 
+ New Method: $\beta=6.55$  & 10 & 20 & 8000 &  100\%\\
+ \hline
+ Old Method: $\beta=\frac{1}{\sqrt{d_k}}$  & 1000 & 20 & 50000 &  18.56\%\\ 
+ New Method: $\beta=5$  & 1000 & 20 & 50000 &  100\%\\
+ \hline
+ Old Method: $\beta=\frac{1}{\sqrt{d_k}}$  & 1000 & 20 & 40000 &  10.68\%\\ 
+ New Method: $\beta=5$  & 1000 & 20 & 40000 &  99.79\%\\
+ \hline
+ Old Method: $\beta=\frac{1}{\sqrt{d_k}}$  & 1000 & 20 & 35000 &  5.52\%\\ 
+ New Method: $\beta=5$  & 1000 & 20 & 35000 &  99.53\%\\
+ New Method: $\beta=6$  & 1000 & 20 & 35000 &  99.77\%\\ [1ex] 
+ \hline
+ 
+
+ \hline
+\end{tabular}
+\caption{Let String Length $=$ Model Dimension $d_k$.  The above table is a collection of several sets of comparisons between old ($\beta=\frac{1}{\sqrt{d_k}}$) and new ($\beta$ is dynamic and derived by using a binary search) methods. The last three sets of old and new pairs showed the step 4 of the procedure for downsizing the training set to find the smallest possible training set. The last row, after reaching the smallest size of the training set, apply step 3 again to find a better $\beta$ which can increase accuracy by 0.24\%.}
+\end{center}
+\end{table}
 \section{Discussion}
 
 The empirical results in the previous section shows that with dynamic scaling factor being implemented, the model can reach an accuracy higher than 96\% with about half of the training data compared to the fixed scaling factor introduced in the self-attention.
