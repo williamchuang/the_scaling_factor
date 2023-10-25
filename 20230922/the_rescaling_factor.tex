@@ -349,7 +349,7 @@ In self-attention, this $\beta$ is $\frac{1}{\sqrt{d_k}}$, and $T$ is the standa
 
 By definition of softmax, apply softmax to the matrix $\frac{QK^T}{\sqrt{d_k}}$ means to apply Softmax function on each column of the matrix $\left(\frac{QK^T}{\sqrt{d_k}}\right)_{N\times N}$, and for defining the self-attention function, take a matrix multiplication between $\text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} \right)_{N\times N}$ and the value matrix $V_{N \times d_v}$. 
 
-\textbf{The question} that asked and answered by this paper is the following.
+\textbf{The question} that was asked and answered by this paper is the following.
 
 
 Because of the random initiation of each weight matrices, if this self-attention, i.e. weights assigning process were run in parallel, then the model can learn from more than one different perspectives. In \cite{vaswani2017attention}, this notion is defined as multi-head attention. Each self-attention function  $\text{Attention}\left(Q,K,V\right)_i$ is called $\text{head}_i$, where $i$ is from 1 to $H$. The output of all $H$ heads are concatenated to a tensor denoted by $\text{Concat}\left(\text{head}_1,...,\text{head}_H \right)$, then defined $\text{Multihead(Q,K,V)}:= \text{Concat}\left(\text{head}_1,...,\text{head}_H \right) W^O$, where $W^O\in \mathbb{R}^{H\cdot d_v}\times \mathbb{R}^{d_{\text{out}}}$.
@@ -399,8 +399,8 @@ Furthermore, the model that achieved the above accuracy did not achieve it by me
 
 The following results were obtained by restarting the training and using the following procedure:
 \begin{itemize}
-\item[Step 1] Start with the smallest possible amount of data and set dynamic scaling factor to 1.
-\item[Step 2] Gradually add certain small amount of data to reach an accuracy greater than 50 percent.
+\item[Step 1] Start with the smallest possible amount of data and set the dynamic scaling factor to 1.
+\item[Step 2] Gradually add a certain small amount of data to reach an accuracy greater than 50 percent.
 \item[Step 3] Using binary search to narrow down the best possible dynamic scaling factor $\beta$.
 \item[Step 4] Downsizing the training set size to the minimum with $\beta$ to be fixed.
 \item[Step 5] Using the same initialization (model size, the range of the string, the string length, particularly, the training set size) but change $\beta$ from the fixed value derived from step 3 to the value suggested by the old method\cite{vaswani2017attention}, i.e. set $\beta=\frac{1}{\sqrt{d_k}}$, and record the test accuracy.
@@ -508,6 +508,7 @@ $$\frac{1}{\sqrt{\text{Var}\left(QK^T \right)}}=\frac{1}{\sqrt{d_k}}.$$
 \bibliographystyle{amsplain} % We choose the "plain" reference style
 \bibliography{refs} % Entries are in the refs.bib file
 \end{document}
+
 
 
 
